@@ -1,10 +1,5 @@
-def krypter(a):
-    even = a[0::2]
-    odd = a[1::2]
-    kryptert = even + odd
-    return kryptert
 konfigurasjon = [3, 4, 5, 5, 3]
-def bedreKrypt(b):
+def kryptering(b):
     dobbel = ""
     for i in range(len(b)):
         dobbel += b[i]+b[i]
@@ -31,5 +26,7 @@ def bedreKrypt(b):
 
 inndata = input("Kva vil du kryptere?")
 
-resultat = bedreKrypt(inndata)
+
+
+resultat = kryptering(inndata)
 print(f'Din kryptering er: {resultat}')
