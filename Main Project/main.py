@@ -1,15 +1,26 @@
+
+
 from ceaserEncryption import encrypt, decrypt
 import time
 import os
 import platform
 
 def clear_console():
-    # Check the platform and run the appropriate clear command
     if platform.system() == "Windows":
         os.system('cls')
     else:
         os.system('clear')
 
+class colors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 clear_console()
 
@@ -18,7 +29,7 @@ failed = False
 time.sleep(2)
 
 while True:
-    print("""
+    print(colors.HEADER + """
     ██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░███████╗██████╗░
     ██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗██╔════╝██╔══██╗
     █████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝█████╗░░██████╔╝
@@ -28,25 +39,25 @@ while True:
     if failed == True:
         print("Skriv en av følgende:")
 
-    print("Tast 1 for å kryptere\nTast 2 for å dekryptere\nTrykk enter for å forlate\n")
+    print(colors.OKGREEN + "Tast 1 for å kryptere\nTast 2 for å dekryptere\nTrykk enter for å forlate\n")
     answer = input("Svar: ")
 
     clear_console()
 
     if answer == "1":
         clear_console()
-        print("""\n\n
+        print(colors.HEADER + """\n\n
 ██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░
 ██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
 █████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝
 ██╔═██╗░██╔══██╗░░╚██╔╝░░██╔═══╝░░░░██║░░░██╔══╝░░██╔══██╗
 ██║░╚██╗██║░░██║░░░██║░░░██║░░░░░░░░██║░░░███████╗██║░░██║
 ╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝\n""")
-        userin = input("Skriv det du vil kryptere\nSvar: ")
+        userin = input(colors.OKGREEN + "Skriv det du vil kryptere\nSvar: ")
         keyin = int(input("Skriv inn nøkkeltall, 1-25\nSvar: "))
         clear_console()
 
-        print("""\n\n
+        print(colors.HEADER + """\n\n
 ██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░████████╗
 ██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗╚══██╔══╝
 █████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝░░░██║░░░
@@ -60,18 +71,18 @@ while True:
 
     elif answer == "2":
 
-        print("""
+        print(colors.OKBLUE + """
 ██████╗░███████╗██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░
 ██╔══██╗██╔════╝██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
 ██║░░██║█████╗░░█████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝
 ██║░░██║██╔══╝░░██╔═██╗░██╔══██╗░░╚██╔╝░░██╔═══╝░░░░██║░░░██╔══╝░░██╔══██╗
 ██████╔╝███████╗██║░╚██╗██║░░██║░░░██║░░░██║░░░░░░░░██║░░░███████╗██║░░██║
 ╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝\n""")
-        userin = input("Skriv inn det krypterte\n Svar: ")
+        userin = input(colors.OKGREEN + "Skriv inn det du vil dekryptere\n Svar: ")
         keyin = int(input("Skriv inn nøkkeltall, 1-25\nSvar: "))
         clear_console()
 
-        print("""\n\n
+        print(colors.OKBLUE + """\n\n
 ██████╗░███████╗██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░████████╗
 ██╔══██╗██╔════╝██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗╚══██╔══╝
 ██║░░██║█████╗░░█████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝░░░██║░░░
@@ -83,7 +94,7 @@ while True:
         print("\n\n\n\n")
         clear_console()
     elif answer.lower() == "":
-        print("""\n\n\n
+        print(colors.WARNING + """\n\n\n
 ░██████╗░░█████╗░░█████╗░██████╗░██████╗░██╗░░░██╗███████╗
 ██╔════╝░██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚██╗░██╔╝██╔════╝
 ██║░░██╗░██║░░██║██║░░██║██║░░██║██████╦╝░╚████╔╝░█████╗░░
@@ -96,7 +107,7 @@ while True:
         
         exit()
     else:
-        print("\n\n\nInvalid input\n\n")
+        print(colors.FAIL + "\n\n\nInvalid input\n\n")
         time.sleep(1)
         print("Prøv igjen")
         time.sleep(1)
