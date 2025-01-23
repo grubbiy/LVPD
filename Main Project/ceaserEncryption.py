@@ -1,26 +1,57 @@
 import string
 
-def key(a):
-    value = a
-    '''
-    while value > 26:
-        value /= 10
-    '''
-    while value < 1:
-        value += 10
-    return value
+def encrypt(_key, _userinput):
+    def key(a):
+        value = a
 
-text = input("Skriv: ")
-shift = int(input("1-26"))
-_shift = int(key(shift))
-_shift %= 26
+        while value > 25:
+            print("SKRIV VALID NUMMER")
+            exit()
+        while value < 1:
+            print("SKRIV VALID NUMMER")
+            exit()
+        return value
 
-print(f'Idc your key is {_shift}')
+    text = _userinput
+    shift = int(_key)
+    _shift = int(key(shift))
 
-alphabet = string.ascii_lowercase
-shifted = alphabet[_shift:] + alphabet[:_shift]
-table = str.maketrans(alphabet, shifted) # Translation, lksm alfabet start 1 blir shift start 1
+    _shift %= 26
+    print(f'Your key is {_shift}')
 
-encrypted = text.translate(table) # Dette legger det inn
+    alphabet = string.ascii_lowercase
+    shifted = alphabet[_shift:] + alphabet[:_shift]
+    table = str.maketrans(alphabet, shifted) # Translation, lksm alfabet start 1 blir shift start 1
 
-print(encrypted)
+
+    encrypted = text.translate(table) # Dette legger det inn
+
+    print(encrypted)
+
+def decrypt(_key, _userinput):
+    def key(a):
+        value = a
+
+        while value > 25:
+            print("SKRIV VALID NUMMER")
+            exit()
+        while value < 1:
+            print("SKRIV VALID NUMMER")
+            exit()
+        return value
+
+    text = _userinput
+    shift = int(_key)
+    _shift = int(key(shift))
+
+    _shift %= 26
+    print(f'Your key is {_shift}')
+
+    alphabet = string.ascii_lowercase
+    shifted = alphabet[_shift:] + alphabet[:_shift]
+    table = str.maketrans(shifted, alphabet) # Translation, lksm alfabet start 1 blir shift start 1
+
+
+    decrypted = text.translate(table) # Dette legger det inn
+
+    print(decrypted)
