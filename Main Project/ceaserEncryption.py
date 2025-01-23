@@ -17,7 +17,7 @@ def encrypt(_key, _userinput):
     _shift = int(key(shift))
 
     _shift %= 26
-    print(f'Your key is {_shift}')
+    print(f'Using key {_shift}')
 
     alphabet = string.ascii_lowercase
     shifted = alphabet[_shift:] + alphabet[:_shift]
@@ -45,7 +45,7 @@ def decrypt(_key, _userinput):
     _shift = int(key(shift))
 
     _shift %= 26
-    print(f'Your key is {_shift}')
+    print(f'Using key {_shift}')
 
     alphabet = string.ascii_lowercase
     shifted = alphabet[_shift:] + alphabet[:_shift]

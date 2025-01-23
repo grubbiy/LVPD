@@ -1,5 +1,17 @@
 from ceaserEncryption import encrypt, decrypt
 import time
+import os
+import platform
+
+def clear_console():
+    # Check the platform and run the appropriate clear command
+    if platform.system() == "Windows":
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
+clear_console()
 
 failed = False
 
@@ -16,11 +28,14 @@ while True:
     if failed == True:
         print("Skriv en av følgende:")
 
-    print("Skriv krypter for å kryptere\nSkriv dekrypter for å dekryptere\nTrykk enter for å forlate\n")
+    print("Tast 1 for å kryptere\nTast 2 for å dekryptere\nTrykk enter for å forlate\n")
     answer = input("Svar: ")
 
-    if answer.lower() == "krypter":
-        print("""\n\n\n\n\n\n\n\n\n\n
+    clear_console()
+
+    if answer == "1":
+        clear_console()
+        print("""\n\n
 ██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░
 ██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
 █████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝
@@ -28,9 +43,10 @@ while True:
 ██║░╚██╗██║░░██║░░░██║░░░██║░░░░░░░░██║░░░███████╗██║░░██║
 ╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝\n""")
         userin = input("Skriv det du vil kryptere\nSvar: ")
-        keyin = int(input("Skriv tall fra 1-25\nSvar: "))
+        keyin = int(input("Skriv inn nøkkeltall, 1-25\nSvar: "))
+        clear_console()
 
-        print("""\n\n\n\n\n\n\n\n\n\n\n
+        print("""\n\n
 ██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░████████╗
 ██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗╚══██╔══╝
 █████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝░░░██║░░░
@@ -40,19 +56,22 @@ while True:
         encrypt(keyin, userin)
         input("Trykk enter for å gå ut...")
         print("\n\n\n\n")
+        clear_console()
 
-    elif answer.lower() == "dekrypter":
-        print("""\n\n\n\n\n\n\n\n\n\n
+    elif answer == "2":
+
+        print("""
 ██████╗░███████╗██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░
 ██╔══██╗██╔════╝██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
 ██║░░██║█████╗░░█████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝
 ██║░░██║██╔══╝░░██╔═██╗░██╔══██╗░░╚██╔╝░░██╔═══╝░░░░██║░░░██╔══╝░░██╔══██╗
 ██████╔╝███████╗██║░╚██╗██║░░██║░░░██║░░░██║░░░░░░░░██║░░░███████╗██║░░██║
 ╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝\n""")
-        userin = input("SKriv det du vil dekryptere\nSvar: ")
-        keyin = int(input("SKriv tall fra 1-25\nSvar: "))
+        userin = input("Skriv inn det krypterte\n Svar: ")
+        keyin = int(input("Skriv inn nøkkeltall, 1-25\nSvar: "))
+        clear_console()
 
-        print("""\n\n\n\n\n\n\n\n\n\n\n 
+        print("""\n\n
 ██████╗░███████╗██╗░░██╗██████╗░██╗░░░██╗██████╗░████████╗███████╗██████╗░████████╗
 ██╔══██╗██╔════╝██║░██╔╝██╔══██╗╚██╗░██╔╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗╚══██╔══╝
 ██║░░██║█████╗░░█████═╝░██████╔╝░╚████╔╝░██████╔╝░░░██║░░░█████╗░░██████╔╝░░░██║░░░
@@ -62,8 +81,9 @@ while True:
         decrypt(keyin, userin)
         input("Trykk enter for å gå ut...")
         print("\n\n\n\n")
+        clear_console()
     elif answer.lower() == "":
-        print("""\n\n\n\n\n\n\n\n\n\n
+        print("""\n\n\n
 ░██████╗░░█████╗░░█████╗░██████╗░██████╗░██╗░░░██╗███████╗
 ██╔════╝░██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚██╗░██╔╝██╔════╝
 ██║░░██╗░██║░░██║██║░░██║██║░░██║██████╦╝░╚████╔╝░█████╗░░
@@ -71,6 +91,8 @@ while True:
 ╚██████╔╝╚█████╔╝╚█████╔╝██████╔╝██████╦╝░░░██║░░░███████╗
 ░╚═════╝░░╚════╝░░╚════╝░╚═════╝░╚═════╝░░░░╚═╝░░░╚══════╝\n""")
         time.sleep(2)
+
+        clear_console()
         
         exit()
     else:
@@ -80,3 +102,4 @@ while True:
         time.sleep(1)
         print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         failed = True
+        clear_console()
